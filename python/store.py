@@ -10,13 +10,6 @@ class NoteStore:
     def __init__(self):
         self._store: Dict[UUID, str] = dict()
 
-    def get_store(self):
-        """
-        Возвращает все хранящиеся сообщения
-        :return:
-        """
-        return self._store
-
     def read(self, note_id: UUID):
         """
         Возвращает сообщение по идентфикатору

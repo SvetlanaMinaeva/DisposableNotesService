@@ -29,7 +29,7 @@ def test_get_note():
         UUID("a356397f-34a8-48ec-9f88-4ea214553795"): "332111",
         UUID("ee34ac06-3604-4f52-bf5a-09f64f6712ec"): "ttrfdd"
     }
-    deleted_id = UUID("a356397f734a8-48ec-9f88-4ea214553795")
+    deleted_id = UUID("a356397f-34a8-48ec-9f88-4ea214553795")
     response = client.get(f'/secrets/{deleted_id}')
     assert response.status_code == 200
     assert response.json() == {

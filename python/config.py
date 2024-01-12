@@ -6,7 +6,7 @@ class ABCConfig(metaclass=ABCMeta):
 
     @property
     @abstractmethod
-    def config(self):
+    def config(self) -> str:
         """
         Возвращает тип конфигурации
         """
@@ -14,7 +14,7 @@ class ABCConfig(metaclass=ABCMeta):
 
     @property
     @abstractmethod
-    def user(self):
+    def user(self) -> str:
         """
         Возвращает пользователя из переменной среды
         """
@@ -22,7 +22,7 @@ class ABCConfig(metaclass=ABCMeta):
 
     @property
     @abstractmethod
-    def password(self):
+    def password(self) -> str:
         """
         Возвращает пароль пользователя из переменной среды
         """
@@ -33,16 +33,15 @@ class ABCDataBaseConfig(ABCConfig, metaclass=ABCMeta):
 
     @property
     @abstractmethod
-    def config(self):
+    def config(self) -> str:
         """
         Возвращает тип конфигурации
         """
         pass
 
-
     @property
     @abstractmethod
-    def user(self):
+    def user(self) -> str:
         """
         Возвращает пользователя из переменной среды
         """
@@ -50,7 +49,7 @@ class ABCDataBaseConfig(ABCConfig, metaclass=ABCMeta):
 
     @property
     @abstractmethod
-    def password(self):
+    def password(self) -> str:
         """
         Возвращает пароль пользователя из переменной среды
         """
@@ -58,7 +57,7 @@ class ABCDataBaseConfig(ABCConfig, metaclass=ABCMeta):
 
     @property
     @abstractmethod
-    def database(self):
+    def database(self) -> str:
         """
         Установка используемой БД
         """
@@ -90,7 +89,7 @@ class PostgresConfig(ABCDataBaseConfig):
         return 'notes'
 
     @property
-    def config(self):
+    def config(self) -> str:
         """
         Возвращает тип конфигурации
         """

@@ -3,23 +3,23 @@ from uuid import UUID, uuid4
 
 from config import PostgresConfig
 from object_table import Notes
-from connection import execute, Connection
+from connection import execute, ConnectionDataBase
 from provider import PostgresProvider
 from cryptography.fernet import Fernet
 
-db_connect = Connection(
+db_connect: ConnectionDataBase = ConnectionDataBase(
     db_config=PostgresConfig(),
     db_provider=PostgresProvider()
 )
 
-fernet_obj = Fernet(getenv('CRYPTO_KEY'))
+fernet_obj: Fernet = Fernet(getenv('CRYPTO_KEY'))
 
 
 def read(note_id: UUID) -> str:
     """
     Возвращает сообщение по идентфикатору, затем удаляет
-    :param note_id:
-    :return:
+    :param note_id: Идентификатор записки
+    :return: Текст записки или ошибка
     """
     text = execute(db_connect, 'read', Notes, id=note_id)
     execute(db_connect, 'delete', Notes, id=note_id)
@@ -30,8 +30,8 @@ def read(note_id: UUID) -> str:
 def save(text: str) -> str:
     """
     Сохраняет сообщение в БД
-    :param text:
-    :return:
+    :param text: Текст записки, полученное через post запрос
+    :return: Идентификатор записки
     """
     note_id: UUID = uuid4()
     ciphered_text = fernet_obj.encrypt(text.encode())

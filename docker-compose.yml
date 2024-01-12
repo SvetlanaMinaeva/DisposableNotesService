@@ -7,6 +7,7 @@ services:
         environment:
             POSTGRES_USER: "service_notes"
             POSTGRES_PASSWORD: "secret_password"
+            CRYPTO_KEY: 'mSa5OGCel40Nq_gJdeNsAzkEtpibmQoqnAV6eBcpNOA='
     postgres:
         image: postgres:latest
         environment:

@@ -1,0 +1,21 @@
+version: "3"
+services:
+    app:
+        build: .
+        ports:
+            - "8080:8000"
+        environment:
+            POSTGRES_USER: "service_notes"
+            POSTGRES_PASSWORD: "secret_password"
+    postgres:
+        image: postgres:latest
+        environment:
+            POSTGRES_DB: "notes"
+            POSTGRES_USER: "service_notes"
+            POSTGRES_PASSWORD: "secret_password"
+            PGDATA: "/var/lib/postgresql/data/pgdata"
+        ports:
+            - "5437:5432"
+        volumes:
+            - ./database:/docker-entrypoint-initdb.d/
+            - ./database:/var/lib/postgresql/data

@@ -18,7 +18,7 @@ class PostgresProvider(ABCProvider):
 
     @property
     def host(self) -> str:
-        return 'localhost'
+        return 'postgres'
 
     @property
     def port(self) -> int:

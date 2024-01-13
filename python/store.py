@@ -4,12 +4,12 @@ from uuid import UUID, uuid4
 from config import PostgresConfig
 from object_table import Notes
 from connection import execute, ConnectionDataBase
-from provider import PostgresProvider
+from provider import get_provider
 from cryptography.fernet import Fernet
 
 db_connect: ConnectionDataBase = ConnectionDataBase(
     db_config=PostgresConfig(),
-    db_provider=PostgresProvider()
+    db_provider=get_provider()()
 )
 
 fernet_obj: Fernet = Fernet(getenv('CRYPTO_KEY'))

@@ -10,7 +10,7 @@ from provider import ABCProvider
 
 class ConnectionDataBase:
     """
-    Класс соединения к БД
+    Класс соединения с БД
     """
 
     def __init__(self, db_config: ABCDataBaseConfig, db_provider: ABCProvider):

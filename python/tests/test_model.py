@@ -17,4 +17,3 @@ def test_note_text():
     # На вход поданы невалидные данные - integer
     with pytest.raises(ValidationError):
         NoteText(text=122421)
-

@@ -2,10 +2,32 @@
 <html>
 <head>
     <meta charset="UTF-8">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x"
+          crossorigin="anonymous">
     <title>Сервис одноразовых записок</title>
 </head>
 <body>
-    <a href="{{ url }}">Прочитать записку</a>
-<!--    <input type="text" value="Test">-->
+    <div class="container-fluid">
+        <br>
+        <div class="mb-3 row">
+            <div class="col-sm">
+                <div class="alert alert-success" role="alert">
+                    <h5> Ваша записка успешно сохранена.
+                        <p> Для прочтения перейдите по ссылке: </p>
+                        <p> <a href="{{ url }}"> {{ url }} </a> </p>
+                    </h5>
+                </div>
+            </div>
+        </div>
+        <div class="mb-3 row">
+            <div class="col-sm">
+                <div class="alert alert-danger" role="alert">
+                    ВНИМАНИЕ! После прочтения записка будет удалена
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 </html>

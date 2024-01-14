@@ -42,7 +42,7 @@ def get_note(request: Request, note_id: UUID) -> Jinja2Templates.TemplateRespons
     Отдает текст записки и удаляет его
     """
     return templates.TemplateResponse(
-        request=request, name='note_read.html', context={'text': read(note_id)}
+        request=request, name='read_note.html', context={'text': read(note_id), 'url': request.base_url}
     )
 
 

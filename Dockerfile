@@ -6,6 +6,6 @@ COPY requirements.txt .
 
 RUN pip install -r requirements.txt
 
-COPY python/ ./python
+COPY python/ .
 
-CMD ["python", "./python/main.py"]
+CMD ["python", "main.py"]
